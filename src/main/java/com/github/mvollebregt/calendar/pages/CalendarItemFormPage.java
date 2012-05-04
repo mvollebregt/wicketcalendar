@@ -27,6 +27,7 @@ import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.form.StatelessForm;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 
 import java.util.Date;
@@ -47,6 +48,7 @@ public class CalendarItemFormPage extends WebPage {
             }
         };
         add(calendarItemForm);
+        calendarItemForm.add(new FeedbackPanel("feedback"));
         calendarItemForm.add(new RequiredTextField<String>("name"));
         calendarItemForm.add(new DateTimeField("dateTime"));
 
