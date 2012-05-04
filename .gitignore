@@ -1,0 +1,12 @@
+# IDE files
+.idea
+*.iml
+
+# build output
+target
+
+# temporary files
+*.swp
+
+# macos crap
+.DS_Store
