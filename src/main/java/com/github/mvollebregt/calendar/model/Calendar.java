@@ -19,6 +19,7 @@
 
 package com.github.mvollebregt.calendar.model;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,7 +41,13 @@ public class Calendar {
         return items;
     }
 
-    public void setItems(Set<CalendarItem> items) {
-        this.items = items;
+    public Set<CalendarItem> getItemsBetween(Date start, Date end) {
+        Set<CalendarItem> itemsBetween = new HashSet<CalendarItem>();
+        for (CalendarItem item : items) {
+            if (start.compareTo(item.getStart()) <= 0 && item.getStart().compareTo(end) < 0) {
+                itemsBetween.add(item);
+            }
+        }
+        return itemsBetween;
     }
 }

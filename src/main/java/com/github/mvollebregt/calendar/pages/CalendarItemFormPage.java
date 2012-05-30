@@ -30,8 +30,6 @@ import org.apache.wicket.markup.html.form.StatelessForm;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 
-import java.util.Date;
-
 public class CalendarItemFormPage extends WebPage {
 
     public CalendarItemFormPage() {
@@ -50,7 +48,8 @@ public class CalendarItemFormPage extends WebPage {
         add(calendarItemForm);
         calendarItemForm.add(new FeedbackPanel("feedback"));
         calendarItemForm.add(new RequiredTextField<String>("name"));
-        calendarItemForm.add(new DateTimeField("dateTime"));
+        calendarItemForm.add(new DateTimeField("start"));
+        calendarItemForm.add(new DateTimeField("end"));
 
 
         calendarItemForm.add(new Button("saveButton"));

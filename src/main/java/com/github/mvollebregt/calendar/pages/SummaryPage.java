@@ -34,17 +34,18 @@ public class SummaryPage extends WebPage {
     public SummaryPage() {
         add(new Label("itemCount", "You have " + Calendar.getInstance().getItems().size() + " items in your calendar"));
         add(new BookmarkablePageLink("addNewItemLink", CalendarItemFormPage.class));
+        add(new BookmarkablePageLink("viewMonthLink", MonthPage.class));
         List<CalendarItem> calendarItemList = new ArrayList<CalendarItem>(Calendar.getInstance().getItems());
         Collections.sort(calendarItemList, new Comparator<CalendarItem>() {
             public int compare(CalendarItem o1, CalendarItem o2) {
-                return o1.getDateTime().compareTo(o2.getDateTime());
+                return o1.getStart().compareTo(o2.getStart());
             }
         });
 
         add(new PropertyListView<CalendarItem>("calendarItemList", calendarItemList) {
             @Override
             protected void populateItem(ListItem<CalendarItem> calendarItem) {
-                calendarItem.add(new Label("dateTime"));
+                calendarItem.add(new Label("start"));
                 calendarItem.add(new Label("name"));
             }
         });
